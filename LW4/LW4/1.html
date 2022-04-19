@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block</title>
+    <style>
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            font-family: sans-serif;
+            font-weight: 700;
+        }
+        
+        header {
+            background-color: #74CFC4;
+            height: 10%;
+        }
+        
+        nav {
+            background-color: #FB9693;
+            height: 5%;
+        }
+        
+        .main {
+            flex-grow: 1;
+            display: flex;
+        }
+        
+        menu {
+            margin: 0;
+            padding: 0;
+            width: 20%;
+            background-color: #9CCA9C;
+        }
+        
+        .content {
+            flex-grow: 1;
+            background-color: #CCCFD0;
+        }
+        
+        footer {
+            background-color: #0466FC;
+            height: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>Шапка</header>
+        <nav>Блок навігації</nav>
+        <section class="main">
+            <menu>Меню</menu>
+            <div class="content">Контент</div>
+        </section>
+        <footer>Підвал сайту</footer>
+    </div>
+</body>
+
+</html>
