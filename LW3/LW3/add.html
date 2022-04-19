@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additional</title>
+    <style>
+        .wrapper {
+            max-width: 1280px;
+            margin: auto;
+        }
+        
+        .list-table {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .styled-p {
+            background-color: yellow;
+            border: 3px solid blue;
+        }
+        
+        .pars>p {
+            border: 1px solid;
+        }
+        
+        .firsrt-p {
+            height: 30px;
+            font-size: 20px;
+        }
+        
+        .second-p {
+            height: 50px;
+            font-size: 30px;
+        }
+        
+        .third-p {
+            height: 20px;
+            font-size: 10px;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            border: 1px solid;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="./add.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Вітання гостю!</h1>
+        <img src="./src/images/ukraine.png" alt="біржі" height="360px">
+        <img src="https://cdn.britannica.com/15/4815-050-F533DB64/Ukraine.jpg" alt="ukraine"
+            height="360px">
+        <div class="list-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>HEADROW</th>
+                        <th>HEADROW</th>
+                        <th>HEADROW</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BODYROW</td>
+                        <td>BODYROW</td>
+                        <td>BODYROW</td>
+                    </tr>
+                    <tr>
+                        <td>BODYROW</td>
+                        <td>BODYROW</td>
+                        <td>BODYROW</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul>
+                <li>LIST_ITEM</li>
+                <li>LIST_ITEM</li>
+                <li>LIST_ITEM</li>
+                <li>LIST_ITEM</li>
+                <li>LIST_ITEM</li>
+            </ul>
+            <ol>
+                <li>LIST_ITEM</li>
+                <li>LIST_ITEM</li>
+                <li>LIST_ITEM</li>
+                <li>LIST_ITEM</li>
+                <li>LIST_ITEM</li>
+            </ol>
+        </div>
+        <div class="paragraphs">
+            <p style="background-color: yellow; border: 3px solid blue;">First paragraph</p>
+            <p class="styled-p">Second paragraph</p>
+            <p class="styled-p-css">Third paragraph</p>
+        </div>
+        <div class="pars">
+            <p class="first-p">SOME TEXT...</p>
+            <p class="second-p">SOME TEXT...</p>
+            <p class="third-p">SOME TEXT...</p>
+        </div>
+    </div>
+</body>
+
+</html>

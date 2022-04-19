@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borders</title>
+    <style>
+        .borders>div {
+            margin-top: 20px;
+            font-weight: 700;
+        }
+        
+        .pp::before {
+            content: "PSEUDOELEM-BEFORE";
+            background-color: red;
+            margin-right: 20px;
+            color: #fff;
+            padding: 2px;
+            font-family: sans-serif;
+        }
+        
+        .pul>li::after {
+            content: "PSEUDOELEM-AFTER";
+            background-color: red;
+            margin-right: 20px;
+            color: #fff;
+            padding: 2px;
+            font-family: sans-serif;
+        }
+        
+        .pa {
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        
+        .pa::before,
+        .pa::after {
+            content: "PSEUDOELEM-AFTER";
+            background-color: red;
+            color: #fff;
+            padding: 2px;
+            font-family: sans-serif;
+        }
+        
+        .pa::before {
+            content: "PSEUDOELEM-BEFORE";
+            margin-right: 20px;
+        }
+        
+        .pa::after {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="borders">
+            <div style="border: 10px solid;">solid</div>
+            <div style="border: 10px dashed;">dashed</div>
+            <div style="border: 10px dotted;">dotted</div>
+            <div style="border: 10px double;">double</div>
+            <div style="border: 10px groove darkcyan;">groove</div>
+            <div style="border: 10px ridge darkcyan;">ridge</div>
+            <div style="border: 10px inset darkcyan;">inset</div>
+            <div style="border: 10px outset darkcyan;">outset</div>
+        </div>
+        <div style="margin-top: 50px;">
+            <p style="background-color: red;">SOME TEXT...</p>
+            <p style="background: url(./src/images/img.jpg);">SOME TEXT...</p>
+            <p style="background-color: #abdcdb;">SOME TEXT...</p>
+            <p style="background-color: rgba(124, 142, 243, 0.7);">SOME TEXT...</p>
+            <p style="background-color: lightcyan;">SOME TEXT...</p>
+        </div>
+        <div class="pseudo">
+            <p class="pp">Some text...</p>
+            <ul class="pul">
+                <li>Some text...</li>
+                <li>Some text...</li>
+                <li>Some text...</li>
+                <li>Some text...</li>
+            </ul>
+            <a href="#" class="pa">Some link...</a>
+        </div>
+    </div>
+</body>
+
+</html>
