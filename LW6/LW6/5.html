@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const MFW = {
+            firstArg: 0,
+            secondArg: 0,
+            operator: '',
+            result: 0,
+            math: function() {
+                const operations = (firstNum, secondNum) => {
+                    switch (this.operator) {
+                        case '+':
+                            return firstNum + secondNum;
+                        case '-':
+                            return firstNum - secondNum;
+                        case '*':
+                            return firstNum * secondNum;
+                        case '/':
+                            return firstNum / secondNum;
+                    }
+                }
+
+                if (!isNaN(this.firstArg.a) && !isNaN(this.firstArg.b) &&
+                    !isNaN(this.secondArg.a) && !isNaN(this.secondArg.b)
+                ) {
+                    Object.defineProperty(this, 'result', {
+                        value: {
+                            result: `${operations(this.firstArg.a, this.secondArg.a)}, ${operations(this.firstArg.b, this.secondArg.b)}`
+                        }
+                    });
+                }
+
+                if (!isNaN(this.firstArg) && !isNaN(this.secondArg)) {
+                    Object.defineProperty(this, 'result', {
+                        value: operations(
+                            this.firstArg,
+                            this.secondArg
+                        )
+                    });
+                }
+
+                const isFirstArr = Array.isArray(this.firstArg);
+                const isSecondArr = Array.isArray(this.secondArg);
+
+                if (isFirstArr && isSecondArr) {
+                    if (this.firstArg.length !== this.secondArg.length) {
+                        return;
+                    }
+
+                    let resultsArr = [];
+                    for (let index = 0; index < this.firstArg.length; index++) {
+                        resultsArr.push(operations(
+                            this.firstArg[index],
+                            this.secondArg[index]
+                        ));
+                    }
+                    Object.defineProperty(this, 'result', {
+                        value: resultsArr
+                    });
+                }
+            }
+        };
+
+        MFW.firstArg = +prompt('Enter first arg:', 0);
+        MFW.operator = prompt('Enter operator');
+        MFW.secondArg = +prompt('Enter first arg:', 0);
+        MFW.math();
+        alert(MFW.result);
+
+        MFW.firstArg =
+            prompt('Enter first array [,,,]:').split(',').map(elem => +elem);
+        MFW.operator = prompt('Enter operator');
+        MFW.secondArg =
+            prompt('Enter first array [,,,]:').split(',').map(elem => +elem);
+        MFW.math();
+        alert(MFW.result);
+
+        MFW.firstArg = {
+            a: +prompt('Enter first arg (first object):', 0),
+            b: +prompt('Enter second arg (first object):', 0)
+        };
+        MFW.operator = prompt('Enter operator');
+        MFW.secondArg = {
+            a: +prompt('Enter first arg (second object):', 0),
+            b: +prompt('Enter second arg (second object):', 0)
+        };;
+        MFW.math();
+        alert(MFW.result.result);
+    </script>
+</body>
+
+</html>

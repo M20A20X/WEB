@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const cl = console.log;
+
+        const MAX_QUESTIONS_AMOUNT = 10;
+        const DIFFICULTY_LEVELS_AMOUNT = 2;
+
+        const game = {
+            questionsDB: [{
+                q: 'Бочка с водой весит 50 килограмм, что нужно добавить, чтобы она стала весить 15 килограмм?',
+                a: 'отверстие',
+                s: 1
+            }, {
+                q: 'Что продолжает работать после того, как его выключают?',
+                a: 'будильник',
+                s: 2
+            }, {
+                q: 'Как называется бумеранг, который не вернулся?',
+                a: 'палка',
+                s: 1
+            }, {
+                q: 'Попробуйте определить, какая птица не несет яиц, но из них выводится?',
+                a: 'петух',
+                s: 2
+            }, {
+                q: 'У нее имеется пять пальцев, но она не живое существо. Что же это такое?',
+                a: 'перчатка',
+                s: 1
+            }, {
+                q: 'Что в Австрии на первом месте, в Бразилии на третьем, а в Голландии на пятом месте?',
+                a: 'а',
+                s: 1
+            }, {
+                q: 'Что находится внутри каждого яблока сорта шафран?',
+                a: 'огрызок',
+                s: 1
+            }, {
+                q: 'Представьте себе, что вы едете на спортивном автомобиле на большой скорости по горному серпантину (узкая извилистая дорога с обрывами).' +
+                    ' Вдруг на вашем пути оказалось два человека: чуть левее молодая девушка, которой лет 20, а правее бабушка, которой примерно 100 лет.' +
+                    ' Вправо от них свернуть нельзя – скалы, влево тоже нельзя – обрыв. Вопрос: кого вы будете давить?',
+                a: 'тормоз',
+                s: 3
+            }, {
+                q: 'Отгадайте, какое слово начинается на три г, а заканчивается на три я?',
+                a: 'тригонометрия',
+                s: 2
+            }, {
+                q: 'Скажите, что можно удерживать, не касаясь его руками?',
+                a: 'дыхание',
+                s: 3
+            }, {
+                q: 'Как вы думаете, какой знак надо поставить между 4 и 5, чтобы результат был меньше 5, но больше 4 ?',
+                a: 'запятую',
+                s: 2
+            }],
+            play: function() {
+                cl(`***Добро пожаловать в юмор-квест***`);
+
+                const playerName = prompt('Введите ваш ник:');
+                const playerAge = prompt('Введите ваш вораст:', 18);
+
+                if (playerAge < 18) {
+                    cl('Вы слишком молоды, чтобы играть в такие игры!');
+                    return;
+                }
+
+                cl(
+                    '\nВ этой игре вам нужно правильно отвечать на задаваемые игрой вопросы.' +
+                    '\nКаждый из них имеет свою ценность. *Ответы вводить в нижнем регистре!*'
+                );
+
+                const difficultyLevels = [];
+                for (let index = 0; index <= DIFFICULTY_LEVELS_AMOUNT; index++) {
+                    difficultyLevels.push(index);
+                }
+
+                const difficulty = +prompt(
+                    `Выберите сложность игры: ${difficultyLevels.join(', ')}`,
+                    0
+                );
+
+                cl(
+                    `\nВыбираем наиболее каверзные вопросы... Подождите!`
+                )
+
+                const lengthDB = this.questionsDB.length;
+                const questionIndexes = [];
+                const difficultyCoeff = (difficulty + 1) / (
+                    DIFFICULTY_LEVELS_AMOUNT + 1);
+                let maxScore = 0;
+
+                for (
+                    let i = 0; i < difficultyCoeff *
+                    MAX_QUESTIONS_AMOUNT; i++
+                ) {
+                    const index = Math.trunc(
+                        Math.random() * (lengthDB)
+                    );
+
+                    if (questionIndexes.indexOf(index) !== -1) {
+                        continue;
+                    }
+
+                    questionIndexes.push(index);
+                    maxScore += this.questionsDB[index].s;
+                }
+
+                const barrier = Math.trunc(maxScore * difficultyCoeff *
+                    0.7);
+
+                cl(
+                    `\nГотово! Поехали...` +
+                    `\nВыбран уровень ${difficulty}. Порог набраных очков для победы: ${barrier}.` +
+                    `\nЖелаем удачи тебе, ${playerName}!`
+                );
+
+                let playerScore = 0;
+                questionIndexes.forEach(index => {
+                    const question = this.questionsDB[index];
+                    const answer = prompt(question.q);
+
+                    if (answer !== question.a) {
+                        cl(
+                            `Это же \'${question.a}\'... 0 очков!`
+                        );
+                    } else {
+                        cl(
+                            `Держите обещанные ${question.s} очков!`
+                        );
+                        playerScore += question.s;
+                    }
+                });
+
+                cl(
+                    `\nУвы, впоросы закончились! ${playerScore > barrier ? 'Но вы победили!' : 'Вы проиграли...'}. Количество набранных очков ${playerScore}.`
+                );
+            }
+        }
+
+        do {
+            game.play();
+        } while (confirm("Попробовать снова?"));
+    </script>
+</body>
+
+</html>

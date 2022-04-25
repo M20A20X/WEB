@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        const doc = {
+            title: "",
+            body: "",
+            footer: "",
+            date: "",
+            application: {
+                title: "",
+                body: "",
+                footer: "",
+                date: ""
+            },
+            fill: () => {
+                doc.title = prompt("Enter header:");
+                doc.body = prompt("Enter body:");
+                doc.footer = prompt("Enter footer:");
+                doc.date = prompt("Enter date:");
+                doc.application.title = prompt(
+                    "Enter application topic:"
+                );
+                doc.application.body = prompt(
+                    "Enter application body:"
+                );
+                doc.application.footer = prompt(
+                    "Enter application footer:"
+                );
+                doc.application.date = prompt(
+                    "Enter application date:"
+                );
+            },
+            print: () => {
+                const title = document.createElement('p');
+                title.innerHTML = doc.title;
+                const body = document.createElement('p');
+                body.innerHTML = doc.body;
+                const footer = document.createElement('p');
+                footer.innerHTML = doc.footer;
+                const date = document.createElement('p');
+                date.innerHTML = doc.date;
+                const applicationTitle = document.createElement('p');
+                applicationTitle.innerHTML = doc.application.title;
+                const applicationBody = document.createElement('p');
+                applicationBody.innerHTML = doc.application.body;
+                const applicationFooter = document.createElement('p');
+                applicationFooter.innerHTML = doc.application.footer;
+                const applicationDate = document.createElement('p');
+                applicationDate.innerHTML = doc.application.date;
+
+                document.body.append(
+                    title, body, footer, date,
+                    applicationTitle, applicationBody,
+                    applicationFooter, applicationDate
+                );
+            }
+        };
+        doc.fill();
+        doc.print();
+    </script>
+</body>
+
+</html>

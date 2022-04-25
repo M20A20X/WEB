@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function math(firstArg, operator, secondArg) {
+            const operations = (firstNum, operator, secondNum) => {
+                switch (operator) {
+                    case '+':
+                        return firstNum + secondNum;
+                    case '-':
+                        return firstNum - secondNum;
+                    case '*':
+                        return firstNum * secondNum;
+                    case '/':
+                        return firstNum / secondNum;
+                }
+            }
+
+            if (!isNaN(firstArg.a) && !isNaN(firstArg.b) &&
+                !isNaN(secondArg.a) && !isNaN(secondArg.b)
+            ) {
+                return {
+                    result: `${operations(firstArg.a, secondArg.a)}, ${operations(firstArg.b, secondArg.b)}`
+                }
+            }
+
+            if (!isNaN(firstArg) && !isNaN(secondArg)) {
+                return operations(firstArg, secondArg);
+            }
+
+            const isFirstArr = Array.isArray(firstArg);
+            const isSecondArr = Array.isArray(secondArg);
+
+            if (isFirstArr && isSecondArr) {
+                if (firstArg.length !== secondArg.length) {
+                    return;
+                }
+
+                let resultsArr = [];
+                for (let index = 0; index < firstArg.length; index++) {
+                    resultsArr.push(operations(firstArg[index], secondArg[index]));
+                }
+                return resultsArr;
+            }
+        }
+
+        alert(math(3, '+', 3));
+        alert(math([2, 4, 3], '-', [2, 5, 3]));
+        alert(math({
+            a: 23,
+            b: 2
+        }, '*', {
+            a: 2,
+            b: 2
+        }).result);
+    </script>
+</body>
+
+</html>
