@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const task_1_2 = () => {
+            let x = 6;
+            let y = 15;
+            let z = 4;
+
+            console.log(
+                `Vars: x = ${x}, y = ${y}, z = ${z}`,
+                `\nOperation: x += y - x++ * z, answer: ${x += y - x++ * z}`,
+                `\nOperation: z = -- x - y * 5, answer: ${z = --x - y * 5}`,
+                `\nOperation:  y /= x + 5 % z, answer: ${y /= x + 5 % z}`,
+                `\nOperation: z = x++ + y * 5, answer: ${z = x++ + y * 5}`,
+                `\nOperation: x += y - x++ * z, answer: ${x = y - x++ * z}`,
+                `\nAverage: ${(x + y + z) / 3}`
+            );
+        }
+
+        const task_3 = () => {
+            const calculateCylinder = (r, h) => ({
+                v: Math.PI * r ** 2 * h,
+                s: Math.PI * r * (r + h)
+            });
+
+            const r = +prompt('Enter cylinder base raduis:', 0);
+            const h = +prompt('Enter cylinder height:', 0);
+
+            const cylinder = calculateCylinder(r, h);
+            alert(`Cylinder: v = ${cylinder.v}, s = ${cylinder.s}`);
+        }
+
+        const task_4 = () => {
+            const a = +prompt('Enter a: ', 0);
+            const b = +prompt('Enter b: ', 0);
+
+            let sum = 0;
+            const odds = [];
+
+            for (let n = a; n <= b; n++) {
+                sum += n;
+                if (n % 2) {
+                    odds.push(n);
+                }
+            }
+
+            alert(`Sum: ${sum}, odds: ${odds.toString()}`);
+        }
+
+        const task_5 = () => {
+            const n = +prompt('Enter n: ', 0);
+            let
+                fact = 1,
+                i = n;
+
+            do {
+                fact *= i;
+                i--;
+            } while (i > 0);
+
+            alert(`Amount of available variants: ${n}! = ${fact} `)
+        }
+
+        const task_6 = () => {
+            const insertLine = (line) => {
+                const lineELem = document.createElement('span');
+                lineELem.innerHTML = line;
+                document.body.appendChild(lineELem);
+
+                const brElem = document.createElement('br');
+                document.body.appendChild(brElem);
+            }
+
+            const drawRect = () => {
+                const widht = +prompt('Enter rectangle width: ', 0);
+                const height = +prompt('Enter rectangle height: ', 0);
+
+                for (let row = 0; row < height; row++) {
+                    let line = '';
+
+                    for (let col = 0; col < widht; col++) {
+                        line +=
+                            col === 0 || col === widht - 1 ||
+                            row === 0 || row === height - 1 ?
+                            '*' : '&nbsp;&nbsp;';
+                    }
+
+                    insertLine(line);
+                }
+            }
+
+            const drawRectTriangle = () => {
+                const sideLenght = +prompt(
+                    'Enter side lenght (rect. triangle): ', 0
+                );
+
+                for (let row = 0; row < sideLenght; row++) {
+                    let line = '';
+
+                    if (row != 0) {
+                        line += '*';
+                    }
+
+                    for (let nbsp = 0; nbsp < row - 1; nbsp++) {
+                        line +=
+                            row < sideLenght - 1 ? '&nbsp;&nbsp;' : '*';
+                    }
+                    line += '*';
+
+                    insertLine(line);
+                }
+            }
+
+            const drawEqilatTriangle = () => {
+                const baseLenght = +prompt(
+                    'Enter triangle base lenght (odd):', 0
+                );
+                const height = Math.ceil(baseLenght * Math.sin(Math.PI /
+                    6));
+
+                for (let row = 0; row < height; row++) {
+                    let line = '';
+
+                    for (let col = 0; col < baseLenght / 2 - row; col++) {
+                        line += '&nbsp;&nbsp;';
+                    }
+
+                    if (row != 0) {
+                        line += '*';
+                    }
+
+
+                    if (row === height - 1) {
+                        for (let asterisk = 0; asterisk < row * 2 - 1; asterisk++) {
+                            line += '*';
+                        }
+                    } else {
+                        for (let nbsp = 0; nbsp < row * 2 - 1; nbsp++) {
+                            line += '&nbsp;&nbsp;';
+                        }
+                    }
+
+                    line += '*';
+
+                    insertLine(line);
+                }
+            }
+
+            const drawDiamond = () => {
+                const baseLenght = +prompt(
+                    'Enter diamond base lenght (odd):', 0
+                );
+                const height = Math.ceil(baseLenght * Math.sin(Math.PI /
+                    6));
+
+                for (let row = 0; row < height; row++) {
+                    let line = '';
+
+                    for (let col = 0; col < baseLenght / 2 - row; col++) {
+                        line += '&nbsp;&nbsp;';
+                    }
+
+                    if (row != 0) {
+                        line += '*';
+                    }
+
+                    for (let nbsp = 0; nbsp < row * 2 - 1; nbsp++) {
+                        line += '&nbsp;&nbsp;';
+                    }
+                    line += '*';
+
+                    insertLine(line);
+                }
+
+                for (let row = height; row >= 0; row--) {
+                    let line = '';
+
+                    for (let col = 0; col < baseLenght / 2 - row; col++) {
+                        line += '&nbsp;&nbsp;';
+                    }
+
+                    if (row != 0) {
+                        line += '*';
+                    }
+
+                    for (let nbsp = 0; nbsp < row * 2 - 1; nbsp++) {
+                        line += '&nbsp;&nbsp;';
+                    }
+
+                    line += '*';
+
+                    insertLine(line);
+                }
+            }
+
+            drawRect();
+            drawEqilatTriangle();
+            drawRectTriangle();
+            drawDiamond();
+        }
+
+        const task_7 = () => {
+            const n = +prompt('Enter array lenght:', 0);
+            const array =
+                Array(n).fill(null).map(n => Math.trunc(Math.random() * 100));
+
+            let
+                max = 0,
+                min = array[0],
+                sum = 0,
+                average = 0,
+                odds = [];
+
+            array.forEach(num => {
+                if (num > max) {
+                    max = num;
+                } else if (num < min) {
+                    min = num;
+                }
+
+                if (num % 2) {
+                    odds.push(num);
+                }
+
+                sum += num;
+            });
+
+            alert(
+                `Array: ${array.toString()}
+                Max: ${max}, min: ${min}, sum: ${sum}, average: ${sum / n}
+                Odds: ${odds.toString()}`
+            );
+        }
+
+        const task_8 = () => {
+            const DIM = 5;
+
+            let array =
+                Array(DIM).fill(null)
+                .map(row => Array(DIM).fill(null)
+                    .map(num => Math.trunc((Math.random() - 0.5) * 100))
+                );
+
+            array.forEach((row, rowIndex) => row.map((elem, colIndex) => {
+                if (rowIndex === colIndex) {
+                    row[colIndex] = elem < 0 ? 0 : 1;
+                }
+            }));
+        }
+
+        const task_9 = () => {
+            const operations = {
+                add: (x, y) => x + y,
+                sub: (x, y) => x - y,
+                mul: (x, y) => x * y,
+                div: (x, y) => y !== 0 ? x / y : 'NULL DIVISION!'
+            }
+
+            const operation = prompt('Enter operation:', '');
+            const x = +prompt('Enter x:', '');
+            const y = +prompt('Enter y:', '');
+
+            alert(`${operations[operation](x, y)}`);
+        }
+
+        const task_10 = () => {
+            const DIV_ARRAY = [2, 5, 3, 6, 9];
+
+            const def = (num) => {
+                const isPositive = num >= 0;
+                let isDivisible = true;
+
+                DIV_ARRAY.forEach(divider => {
+                    isDivisible =
+                        isDivisible && num % divider === 0;
+                });
+
+                let isPrime = false;
+
+                for (let n = 0; n < Math.sqrt(num) && !isPrime; n++) {
+                    if (num % n === 0) {
+                        isPrime = true;
+                    };
+                }
+
+                alert(
+                    `Is positive: ${isPositive}, is divisible by ${DIV_ARRAY}: ${isDivisible}, is prime: ${isPrime}`
+                );
+            }
+
+            const number = +prompt('Enter number:', 0);
+            def(number);
+        }
+
+        task_1_2();
+        task_3();
+        task_4();
+        task_5();
+        task_6();
+        task_7();
+        task_8();
+        task_9();
+        task_10();
+    </script>
+</body>
+
+</html>
