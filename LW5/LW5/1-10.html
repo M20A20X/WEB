@@ -15,14 +15,14 @@
             let y = 15;
             let z = 4;
 
-            console.log(
-                `Vars: x = ${x}, y = ${y}, z = ${z}`,
-                `\nOperation: x += y - x++ * z, answer: ${x += y - x++ * z}`,
-                `\nOperation: z = -- x - y * 5, answer: ${z = --x - y * 5}`,
-                `\nOperation:  y /= x + 5 % z, answer: ${y /= x + 5 % z}`,
-                `\nOperation: z = x++ + y * 5, answer: ${z = x++ + y * 5}`,
-                `\nOperation: x += y - x++ * z, answer: ${x = y - x++ * z}`,
-                `\nAverage: ${(x + y + z) / 3}`
+            alert(
+                `Vars: x = ${x}, y = ${y}, z = ${z}
+                \nOperation: x += y - x++ * z, answer: ${x += y - x++ * z}
+                \nOperation: z = -- x - y * 5, answer: ${z = --x - y * 5}
+                \nOperation:  y /= x + 5 % z, answer: ${y /= x + 5 % z}
+                \nOperation: z = x++ + y * 5, answer: ${z = x++ + y * 5}
+                \nOperation: x += y - x++ * z, answer: ${x = y - x++ * z}
+                \nAverage: ${(x + y + z) / 3}`
             );
         }
 
@@ -236,8 +236,8 @@
 
             alert(
                 `Array: ${array.toString()}
-                Max: ${max}, min: ${min}, sum: ${sum}, average: ${sum / n}
-                Odds: ${odds.toString()}`
+                \nMax: ${max}, min: ${min}, sum: ${sum}, average: ${sum / n}
+                \nOdds: ${odds.toString()}`
             );
         }
 

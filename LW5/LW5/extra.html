@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const task_1 = () => {
+            const x = 5;
+            const y = 4;
+
+            alert(`${x + y}, ${x - y}, ${x * y}, ${x / y}`);
+        }
+
+        const task_2 = () => {
+            const x = 8;
+            const y = 3;
+
+            const drawRect = () => {
+                for (let row = 0; row < y; row++) {
+                    let line = '';
+
+                    for (let col = 0; col < x; col++) {
+                        line +=
+                            col === 0 || col === widht - 1 ||
+                            row === 0 || row === height - 1 ?
+                            '*' : '&nbsp;&nbsp;';
+                    }
+
+                    const lineELem = document.createElement('span');
+                    lineELem.innerHTML = line;
+                    document.body.appendChild(lineELem);
+
+                    const brElem = document.createElement('br');
+                    document.body.appendChild(brElem);
+                }
+            }
+        }
+
+        const task_3 = () => {
+            const n = +prompt('Enter n:', 0);
+            const array =
+                Array(n).fill(null).map(n => Math.trunc(Math.random() * 100));
+
+            console.log(array);
+
+            for (let index = n - 1; index >= 0; index--) {
+                console.log(array[index]);
+            }
+        }
+
+        const task_4 = () => {
+            const a = +prompt('Enter a:', 0);
+            const b = +prompt('Enter b:', 0);
+            const c = +prompt('Enter c:', 0);
+
+            const calculate = (a, b, c) => (a + b + c) / 3;
+            alert(calculate(a, b, c));
+        }
+
+        task_1();
+        task_2();
+        task_3();
+        task_4();
+    </script>
+</body>
+
+</html>
