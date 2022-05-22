@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const manager = {
+            name: 'Name',
+            surname: 'Surname',
+            age: 23
+        }
+
+        function Secretary(name, surname, age) {
+            this.name = name;
+            this.surname = surname;
+            this.age = age;
+        }
+
+        const secretary = new Secretary('Name', 'Surname', 23);
+
+
+        const x = 3;
+        const y = 6;
+
+        alert(`${x + y}, ${x - y}, ${x * y}, ${x / y}`);
+    </script>
+</body>
+
+</html>
