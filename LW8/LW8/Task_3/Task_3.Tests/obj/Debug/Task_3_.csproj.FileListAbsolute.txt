@@ -1,0 +1,2 @@
+D:\Documents\Process\sem_4\WEB\LW8\Practic8MVC2\Task_3\Task_3_\obj\Debug\Task_3_.csproj.AssemblyReference.cache
+D:\Documents\Process\sem_4\WEB\LW8\Practic8MVC2\Task_3\Task_3_\obj\Debug\Task_3_.csproj.CoreCompileInputs.cache
